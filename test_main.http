@@ -1,0 +1,45 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/predict/?bill_length_mm=40.3&flipper_length_mm=195
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/predict/?bill_length_mm=40.3
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/hello/User
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8000/predict-image/ HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="test_img0.png"
+
+< ./test_img0.png
+
+--boundary--
+
+###
+
+POST http://127.0.0.1:8000/upload-images/ HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="test_img0.png"
+
+< ./retrain_img.zip
+
+--boundary--
+
+###
